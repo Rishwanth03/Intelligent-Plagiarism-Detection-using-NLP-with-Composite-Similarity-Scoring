@@ -1,24 +1,60 @@
 {
-  "name": "automated-plagiarism-detection-frontend",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
+  "name": "clsx",
+  "version": "2.1.1",
+  "repository": "lukeed/clsx",
+  "description": "A tiny (239B) utility for constructing className strings conditionally.",
+  "module": "dist/clsx.mjs",
+  "unpkg": "dist/clsx.min.js",
+  "main": "dist/clsx.js",
+  "types": "clsx.d.ts",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./clsx.d.mts",
+        "default": "./dist/clsx.mjs"
+      },
+      "default": {
+        "types": "./clsx.d.ts",
+        "default": "./dist/clsx.js"
+      }
+    },
+    "./lite": {
+      "import": {
+        "types": "./clsx.d.mts",
+        "default": "./dist/lite.mjs"
+      },
+      "default": {
+        "types": "./clsx.d.ts",
+        "default": "./dist/lite.js"
+      }
+    }
+  },
+  "author": {
+    "name": "Luke Edwards",
+    "email": "luke.edwards05@gmail.com",
+    "url": "https://lukeed.com"
+  },
+  "engines": {
+    "node": ">=6"
+  },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "build:ci": "vite build && node scripts/check-bundle-size.mjs",
-    "check:bundle": "node scripts/check-bundle-size.mjs",
-    "preview": "vite preview"
+    "build": "node bin",
+    "test": "uvu -r esm test"
   },
-  "dependencies": {
-    "axios": "^1.7.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.0",
-    "recharts": "^2.12.7"
-  },
+  "files": [
+    "*.d.mts",
+    "*.d.ts",
+    "dist"
+  ],
+  "keywords": [
+    "classes",
+    "classname",
+    "classnames"
+  ],
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.4.0"
+    "esm": "3.2.25",
+    "terser": "4.8.0",
+    "uvu": "0.5.4"
   }
 }
